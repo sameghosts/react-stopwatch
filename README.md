@@ -29,10 +29,16 @@ Once you have that, then you'll need to add functionality to our app!
 
 5. Next you will need to create `onClick` event attributes for reset and pause and associated methods for each.  
 
+6. Finally, you'll want to limit which buttons can be pressed when.
+  - Start button can't be pushed if there's a count already going
+  - Pause and reset buttons can only be pushed if there's an active count
+
 **Hints**...*Shhhhhh!*
-> You will also most likely need to include an additional attribute in your constructor method that keeps track of your current interval.  If you have an active interval, then don't let the start button be fired again!
->
+> It might be useful to rethink your state and what properties it should have to accomplish all the tasks!
+> You might also want to include an additional attribute in your constructor method (but outside of state) that keeps track of your current interval. (Think about the pros and cons of putting this variable in state vs outside of it) 
 > You can use `clearInterval` to stop the current interval!
+> Use the `! ` operator to toggle boolean values!
+> When limiting button presses, think about how each value in state tells you what is going on! For example, if there is an interval set, that means there is count going!
 
 ### Bonus!
 
