@@ -19,7 +19,7 @@ Once you have that, then you'll need to add functionality to our app!
 
 ## Steps to Take
 
-1. Add a `constructor` method and initialize state with a `counter` property to track the incrementing time.  (You may need additional state properties later on)
+1. Initialize state with a `counter` property to track the incrementing time.  (You may need additional state properties later on)
 
 2. Create a `handleStart` method that calls setInterval() and updates `counter` every second.  (Make sure to use `setState` to update)
 
