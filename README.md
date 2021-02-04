@@ -34,13 +34,13 @@ Once you have that, then you'll need to add functionality to our app!
   - Pause and reset buttons can only be pushed if there's an active count
 
 **Hints**...*Shhhhhh!*
-> It might be useful to rethink your state and what properties it should have to accomplish all the tasks!
-> You might also want to include an additional attribute in your constructor method (but outside of state) that keeps track of your current interval. (Think about the pros and cons of putting this variable in state vs outside of it) 
-> You can use `clearInterval` to stop the current interval!
-> Use the `! ` operator to toggle boolean values!
-> When limiting button presses, think about how each value in state tells you what is going on! For example, if there is an interval set, that means there is count going!
+- It might be useful to rethink your state and what properties it should have to accomplish all the tasks!
+- You might also want to include an additional attribute in your constructor method (but outside of state) that keeps track of your current interval. (Think about the pros and cons of putting this variable in state vs outside of it)
+- You can use `clearInterval` to stop the current interval!
+- Use the `! ` operator to toggle boolean values!
+- When limiting button presses, think about how each value in state tells you what is going on! For example, if there is an interval set, that means there is count going!
 
-### Bonus!
+## Bonus!
 
 * Add some styling! You can make your stopwatch look like the demo, or do something else!
 * When the stopwatch is at 0, the display time should be a different style.
