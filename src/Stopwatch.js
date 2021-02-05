@@ -57,9 +57,9 @@ class Stopwatch extends Component {
         <h2>{this.state.seconds}</h2>
         </div>
         <div className="button-area">
-          <button name="pause"  onClick={this.handleReset} disabled={this.state.seconds > 0 || this.state.counter ? false : true}> reset </button>
-          <button name="start" onClick={this.handleStart} disabled={this.state.seconds > 0 || this.state.counter ? true : false}>Start</button>
-          <button name="pause" onClick={this.handlePause} disabled={this.state.seconds >0 || this.state.counter ? false : true}> {this.state.isPaused ? "Restart" : "Pause"} </button>
+          <button className="pause"  onClick={this.handleReset} disabled={this.state.seconds > 0 || this.state.counter ? false : true}> Reset </button>
+          <button className="start" onClick={this.handleStart} disabled={this.state.seconds > 0 || this.state.counter ? true : false}>Start</button>
+          <button className="pause" onClick={this.handlePause} disabled={this.state.seconds >0 || this.state.counter ? false : true}> {this.state.isPaused ? "Restart" : "Pause"} </button>
         </div>
       </div>
     )
