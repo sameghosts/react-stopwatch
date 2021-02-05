@@ -4,36 +4,31 @@ class Stopwatch extends Component {
   constructor(){
     super()
     this.state = {
-      timerInit: 0,
-      timerNow: 0,
+      seconds: 0,
+      counter: null,
       isActive: false,
       isPaused: false
     }
     // this.updateSeconds = this.updateSeconds.bind(this)
   }
-  // updateSeconds = () =>{
-  //   this.setState({
-  //     seconds: +this.state.seconds +1
-  //   })
-  // }
+  updateSeconds = () =>{
+    this.setState({
+      seconds: this.state.seconds +1
+    })
+  }
   handleStart = e => {
     // this.setState({ isActive: true})
     // if(this.state.isActive === true){
       this.setState({
-          isActive: true,
-          timerNow: this.state.timerNow,
-          timerInit: Date.now() - this.state.timerNow
+          isActive: !this.state.isActive,
+          counter: setInterval(this.updateSeconds, 1000)
         })
-      this.timer = setInterval(() => { 
-        this.setState({
-          timerNow: Math.floor((Date.now() - this.state.timerInit)/1000)})
-      }, 1000)
   }
   resetInterval = () => {
-    clearInterval(this.timer)
-    this.setState((prevState) => ({
-      timerNow: prevState.timerNow
-    }))
+    clearInterval(this.state.counter)
+    this.setState({
+      counter: null
+    })
   }
   handlePause = e => {
     if (this.state.isPaused){
@@ -41,21 +36,30 @@ class Stopwatch extends Component {
     } else{
       this.resetInterval()
     }
-    this.setState((prevState) => ({
+    this.setState({
+      isActive: !this.state.isActive,
       isPaused: !this.state.isPaused 
-    }))
+    })
+  }
+  
+  handleReset = () => {
+    this.resetInterval()
+    this.setState({
+      seconds: 0,
+      isPaused: false
+    })
   }
 
   render () {
     return (
       <div className="stopwatch">
         <div className="timer-window">
-        <h2>{this.state.timerNow}</h2>
+        <h2>{this.state.seconds}</h2>
         </div>
         <div className="button-area">
-          <button name="start" onClick={this.handleStart} value="">Start</button>
-          <button name="pause" onClick={this.handlePause} value=""> pause </button>
-          <button name="pause"  value=""> reset </button>
+          <button name="pause"  onClick={this.handleReset} disabled={this.state.seconds > 0 || this.state.counter ? false : true}> reset </button>
+          <button name="start" onClick={this.handleStart} disabled={this.state.seconds > 0 || this.state.counter ? true : false}>Start</button>
+          <button name="pause" onClick={this.handlePause} disabled={this.state.seconds >0 || this.state.counter ? false : true}> {this.state.isPaused ? "Restart" : "Pause"} </button>
         </div>
       </div>
     )
